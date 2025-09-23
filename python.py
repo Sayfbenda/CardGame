@@ -1,9 +1,5 @@
 import random
 
-# Initialiser le score :
-
-score = 0
-
 # Initialisation des tuples animaux :
 crocodile = ("crocodile du Nil", 5500, 850000, 80*360)
 chauvesouris = ("La Chauve-souris", 140, 70, 20*360)
@@ -71,29 +67,34 @@ def ordredescartes():
     print("Votre main est maintenant libre")
     
 
+# Ajouter un point au score :
+score = 0
+
+def ajouterscore(score):
+    score = score + 1
+    print("Vous avez actuellement : ", score, " Points.")
+
 # Traitement (gagner ou perdre)
 
 
-def gagnerouperdre(score):
+def gagnerouperdre():
     if tabledejeu[0][hasard] > tabledejeu[1][hasard] > tabledejeu[2][hasard]:
         print("Vous avez gangé")
-        score = score + 1
-        print("Vous avez :", score, " Points")
-        jouerleround(score)
-        return score
+        ajouterscore(score)
+        jouerleround()
     else:
         print("Vous avez perdu !")
     
 
-def jouerleround(score):
+def jouerleround():
     conditionauhasard()
     condtion = indexConditions[hasard][0]
     print("La condition du round est : ", condtion)
     cartesauhasard()
     ordredescartes()
     cartesurtable()
-    gagnerouperdre(score)
+    gagnerouperdre()
     
 
-jouerleround(score)
+jouerleround()
 
