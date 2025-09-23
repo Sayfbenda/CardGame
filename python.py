@@ -1,12 +1,16 @@
 import random
 
+# Initialiser le score :
+
+score = 0
+
 # Initialisation des tuples animaux :
 crocodile = ("crocodile du Nil", 5500, 850000, 80*360)
 chauvesouris = ("La Chauve-souris", 140, 70, 20*360)
 mygale = ("La mygale", 110, 90, 18*360)
-mouton = ("Un mouton", 110, 15000, 25*360)
-vache = ("Une vache", 110, 20000, 30*360)
-poule = ("Une poule", 110, 1200, 5*360)
+mouton = ("Un mouton", 2010, 15000, 25*360)
+vache = ("Une vache", 3010, 20000, 30*360)
+poule = ("Une poule", 310, 1200, 5*360)
 
 # les conditions du round 
 
@@ -33,7 +37,7 @@ def cartesauhasard():
 
 # Début du jeu :
 
-# Annoncer la condition :
+# Définir la condition :
 
 def conditionauhasard():
     conditionhasard = random.randint(0,2)
@@ -70,28 +74,26 @@ def ordredescartes():
 # Traitement (gagner ou perdre)
 
 
-def gagnerouperdre():
-    condition = indexConditions[hasard][1]
+def gagnerouperdre(score):
     if tabledejeu[0][hasard] > tabledejeu[1][hasard] > tabledejeu[2][hasard]:
         print("Vous avez gangé")
+        score = score + 1
+        print("Vous avez :", score, " Points")
+        jouerleround(score)
+        return score
     else:
         print("Vous avez perdu !")
     
 
-def jouerleround():
+def jouerleround(score):
     conditionauhasard()
     condtion = indexConditions[hasard][0]
     print("La condition du round est : ", condtion)
     cartesauhasard()
     ordredescartes()
     cartesurtable()
-    gagnerouperdre()
+    gagnerouperdre(score)
     
 
-jouerleround()
+jouerleround(score)
 
-
-# Définir la condition du round :
-    
-
-    
