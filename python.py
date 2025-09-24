@@ -16,16 +16,16 @@ Esp = ("Espérence de vie", 3)
 
 indexConditions = [Poid, Taille, Esp]
 
-# Liste des animaux : 
-cartes = [crocodile, chauvesouris, mygale, mouton, vache, poule]
-
 # Au début : la table du jeu et la main sont vides 
+
 tabledejeu = [1, 2, 3]
 cartesenmain = []
+
 
 # Tirer 3 cartes au hasard au début et l'enlève de la liste carte
 
 def cartesauhasard():
+    cartes = [crocodile, chauvesouris, mygale, mouton, vache, poule]
     for i in range(3):
         number = random.randint(0, cartes.__len__()-1)
         cartesenmain.append(cartes[number])
@@ -68,32 +68,41 @@ def ordredescartes():
     
 
 # Ajouter un point au score :
-score = 0
 
-def ajouterscore(score):
-    score = score + 1
+score = 1
+
+def ajouterscore():
+    score = score
     print("Vous avez actuellement : ", score, " Points.")
+    return score
 
 # Traitement (gagner ou perdre)
 
 
 def gagnerouperdre():
-    if tabledejeu[0][hasard] > tabledejeu[1][hasard] > tabledejeu[2][hasard]:
+    if tabledejeu[0][hasard] > tabledejeu[1][hasard] and tabledejeu[1][hasard] > tabledejeu[2][hasard]:
         print("Vous avez gangé")
-        ajouterscore(score)
         jouerleround()
     else:
         print("Vous avez perdu !")
-    
+
+# remettre les variables à 0
+def reset():
+    tabledejeu = [1, 2, 3]
+    cartesenmain = []
+    cartes = [crocodile, chauvesouris, mygale, mouton, vache, poule]
 
 def jouerleround():
+    reset()
     conditionauhasard()
     condtion = indexConditions[hasard][0]
     print("La condition du round est : ", condtion)
     cartesauhasard()
     ordredescartes()
     cartesurtable()
+    ajouterscore()
     gagnerouperdre()
+
     
 
 jouerleround()
