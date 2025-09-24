@@ -69,12 +69,7 @@ def ordredescartes():
 
 # Ajouter un point au score :
 
-score = 1
 
-def ajouterscore():
-    score = score
-    print("Vous avez actuellement : ", score, " Points.")
-    return score
 
 # Traitement (gagner ou perdre)
 
@@ -100,7 +95,6 @@ def jouerleround():
     cartesauhasard()
     ordredescartes()
     cartesurtable()
-    ajouterscore()
     gagnerouperdre()
 
     
