@@ -69,15 +69,17 @@ def ordredescartes():
 
 # Ajouter un point au score :
 
-
+score = 0
 
 # Traitement (gagner ou perdre)
 
 
-def gagnerouperdre():
+def gagnerouperdre(score):
     if tabledejeu[0][hasard] > tabledejeu[1][hasard] and tabledejeu[1][hasard] > tabledejeu[2][hasard]:
+        score += 1
         print("Vous avez gangé")
-        jouerleround()
+        print("Vous avez actuellement :", score)
+        jouerleround(score)
     else:
         print("Vous avez perdu !")
 
@@ -87,7 +89,7 @@ def reset():
     cartesenmain = []
     cartes = [crocodile, chauvesouris, mygale, mouton, vache, poule]
 
-def jouerleround():
+def jouerleround(score):
     reset()
     conditionauhasard()
     condtion = indexConditions[hasard][0]
@@ -95,9 +97,9 @@ def jouerleround():
     cartesauhasard()
     ordredescartes()
     cartesurtable()
-    gagnerouperdre()
+    gagnerouperdre(score)
 
     
 
-jouerleround()
+jouerleround(score)
 
