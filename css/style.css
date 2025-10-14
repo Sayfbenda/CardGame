@@ -21,3 +21,19 @@ main > section > article:nth-child(2) > fieldset{
     height: 50vh;
     width: 30vw;
 }
+
+main > section > article:nth-child(2) > fieldset > img{
+    width: 100%;
+}
+
+main > section > article:nth-child(3){
+    display: flex;
+    justify-content: center;
+}
+main > section > article:nth-child(3) > fieldset{
+    width: 30vw;
+    height: 40vh;
+}
+main > section > article:nth-child(3) > fieldset > img{
+    width: 100%;
+}

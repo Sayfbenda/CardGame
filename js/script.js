@@ -1,6 +1,7 @@
 let cartes = []
 let cartesenmain = []
 let condition = ["Taille", "Poid", "Espérence de vie"]
+let titrecondition = document.getElementById("condition") 
 const premierePos = document.getElementById("premiereposition")
 const deuxiemePos = document.getElementById("deuxiemeposition")
 const troisiemePos = document.getElementById("troisiemeposition")
@@ -78,9 +79,18 @@ function genererRegle() {
 }
 genererRegle()
 
+addEventListener("drag", (event) => {
+    console.log(event.target)
+})
+addEventListener("drop", (event)=>{
+    console.log("test")
+})
+
+
 function test() {
     let test = premierePos.firstElementChild.attributes[0]
     console.log(test)
     test.nodeValue = "/img/mygale.jpg"
+    
 }
 test()
