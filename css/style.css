@@ -5,3 +5,18 @@
 body{
     background-color: black;
 }
+
+main > section{
+    height: 100vh;
+}
+main > section > article{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    gap: 1rem;
+}
+main > section > article > fieldset{
+    height: 50vh;
+    width: 30vw;
+}
