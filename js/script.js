@@ -80,12 +80,12 @@ function afficherCartes() {
 
 function genererRegle() {
     let condaffiche = condition[Math.floor(Math.random()*condition.length)]
-    console.log("Condition : ", condaffiche)
     let html = `
     <h2>Condition :${condaffiche}
     `
     titrecondition.innerHTML = html
 }
+
 
 addEventListener("dragstart", (event) => {
     dragtest = event.target
@@ -110,6 +110,9 @@ for (let index = 0; index < pos.length; index++) {
     }) 
 }
 
+function verifierPos() {
+    
+}
 
 function mainBarre() {
     for (let index = 0; index < cartesenmain.length; index++) {
