@@ -9,6 +9,7 @@ const premiereMainPos = document.getElementById("premieremain")
 const deuxiemeMainPos = document.getElementById("deuxiememain")
 const troisiemeMainPos = document.getElementById("troisiememain")
 let posiotionmain = [premiereMainPos, deuxiemeMainPos, troisiemeMainPos]
+let dragtest = ""
 
 let mygale = new Object()
 mygale.nom = "La mygale"
@@ -89,11 +90,16 @@ function genererRegle() {
 }
 genererRegle()
 
-addEventListener("drag", (event) => {
-    console.log(event.target)
+addEventListener("dragstart", (event) => {
+    dragtest = event.target
 })
-addEventListener("drop", (event)=>{
-    console.log("test")
+
+premierePos.addEventListener("dragover", (event)=>{
+    event.preventDefault()
+})
+
+premierePos.addEventListener("drop", (event)=>{
+    premierePos.replaceWith(dragtest)
 })
 
 
