@@ -60,7 +60,6 @@ poule.vie = 5*360
 poule.image = '/img/poule.jpg'
 cartes.push(poule)
 
-console.log(cartes)
 function genererCarte() {
     for (let index = 0; index < 3; index++) {
         let nbhasard = Math.floor(Math.random()*cartes.length)
@@ -70,7 +69,6 @@ function genererCarte() {
     }
     
 }
-genererCarte()
 
 function afficherCartes() {
     for (let index = 0; index < cartesenmain.length; index++) {
@@ -79,7 +77,6 @@ function afficherCartes() {
     }
 }
 
-afficherCartes()
 
 function genererRegle() {
     let condaffiche = condition[Math.floor(Math.random()*condition.length)]
@@ -89,7 +86,6 @@ function genererRegle() {
     `
     titrecondition.innerHTML = html
 }
-genererRegle()
 
 addEventListener("dragstart", (event) => {
     dragtest = event.target
@@ -122,4 +118,12 @@ function mainBarre() {
         
     }
 }
-mainBarre()
+
+function commencerLejeu() {
+    genererCarte()
+    afficherCartes()
+    genererRegle()
+    mainBarre()
+}
+
+commencerLejeu()
