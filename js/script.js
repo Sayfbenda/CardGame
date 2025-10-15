@@ -1,10 +1,14 @@
 let cartes = []
 let cartesenmain = []
 let condition = ["Taille", "Poid", "Espérence de vie"]
-let titrecondition = document.getElementById("condition") 
+const titrecondition = document.getElementById("condition") 
 const premierePos = document.getElementById("premiereposition")
 const deuxiemePos = document.getElementById("deuxiemeposition")
 const troisiemePos = document.getElementById("troisiemeposition")
+const premiereMainPos = document.getElementById("premieremain")
+const deuxiemeMainPos = document.getElementById("deuxiememain")
+const troisiemeMainPos = document.getElementById("troisiememain")
+let posiotionmain = [premiereMainPos, deuxiemeMainPos, troisiemeMainPos]
 
 let mygale = new Object()
 mygale.nom = "La mygale"
@@ -19,7 +23,7 @@ crocodile.nom = "Crocodile du Nil"
 crocodile.taille = 5500
 crocodile.poid = 850000
 crocodile.vie = 80*360
-crocodile.image = '/img/mygale.jpg'
+crocodile.image = '/img/NileCrocodile.jpg'
 cartes.push(crocodile)
 
 let chauvesouris = new Object()
@@ -27,7 +31,7 @@ chauvesouris.nom = "La chauve-souris"
 chauvesouris.taille = 140
 chauvesouris.poid = 70
 chauvesouris.vie = 20*360
-chauvesouris.image = '/img/mygale.jpg'
+chauvesouris.image = '/img/chauvesouris.jpg'
 cartes.push(chauvesouris)
 
 let mouton = new Object()
@@ -35,7 +39,7 @@ mouton.nom = "Un mouton"
 mouton.taille = 2010
 mouton.poid = 15000
 mouton.vie = 25*360
-mouton.image = '/img/mygale.jpg'
+mouton.image = '/img/mouton.jpg'
 cartes.push(mouton)
 
 let vache = new Object()
@@ -43,7 +47,7 @@ vache.nom = "Une vache"
 vache.taille = 3010
 vache.poid = 200000
 vache.vie = 30*360
-vache.image = '/img/mygale.jpg'
+vache.image = '/img/vache.jpg'
 cartes.push(vache)
 
 let poule = new Object()
@@ -51,7 +55,7 @@ poule.nom = "Une poule"
 poule.taille = 310
 poule.poid = 1200
 poule.vie = 5*360
-poule.image = '/img/mygale.jpg'
+poule.image = '/img/poule.jpg'
 cartes.push(poule)
 
 console.log(cartes)
@@ -60,6 +64,7 @@ function genererCarte() {
         let nbhasard = Math.floor(Math.random()*cartes.length)
         cartesenmain.push(cartes[nbhasard])
         cartes.splice(nbhasard, 1)
+        console.log(cartesenmain[0].image.nodeValue)
     }
     
 }
@@ -75,7 +80,12 @@ function afficherCartes() {
 afficherCartes()
 
 function genererRegle() {
-    console.log("Condition : ", condition[Math.floor(Math.random()*condition.length)])
+    let condaffiche = condition[Math.floor(Math.random()*condition.length)]
+    console.log("Condition : ", condaffiche)
+    let html = `
+    <h2>Condition :${condaffiche}
+    `
+    titrecondition.innerHTML = html
 }
 genererRegle()
 
@@ -87,10 +97,11 @@ addEventListener("drop", (event)=>{
 })
 
 
-function test() {
-    let test = premierePos.firstElementChild.attributes[0]
-    console.log(test)
-    test.nodeValue = "/img/mygale.jpg"
-    
+function mainBarre() {
+    for (let index = 0; index < cartesenmain.length; index++) {
+        posiotionmain[index].firstElementChild.attributes[0].value = cartesenmain[index].image
+        console.log(posiotionmain[index].firstElementChild.attributes[0])
+        
+    }
 }
-test()
+mainBarre()
