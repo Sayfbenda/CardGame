@@ -105,6 +105,13 @@ for (let index = 0; index < pos.length; index++) {
         event.target.replaceChildren(dragtest.children[0])
         console.log(event.target)
     }) 
+    posiotionmain[index].addEventListener("dragover", (event)=>{
+    event.preventDefault()
+    })
+    posiotionmain[index].addEventListener("drop", (event)=>{
+        event.target.replaceChildren(dragtest.children[0])
+        console.log(event.target)
+    }) 
 }
 
 
