@@ -8,7 +8,8 @@ const troisiemePos = document.getElementById("troisiemeposition")
 const premiereMainPos = document.getElementById("premieremain")
 const deuxiemeMainPos = document.getElementById("deuxiememain")
 const troisiemeMainPos = document.getElementById("troisiememain")
-let posiotionmain = [premiereMainPos, deuxiemeMainPos, troisiemeMainPos]
+const posiotionmain = [premiereMainPos, deuxiemeMainPos, troisiemeMainPos]
+const pos = [deuxiemePos, premierePos , troisiemePos]
 let dragtest = ""
 
 let mygale = new Object()
@@ -92,15 +93,19 @@ genererRegle()
 
 addEventListener("dragstart", (event) => {
     dragtest = event.target
+    console.log(dragtest.children)
 })
 
-premierePos.addEventListener("dragover", (event)=>{
+for (let index = 0; index < pos.length; index++) {
+    console.log(index)
+    pos[index].addEventListener("dragover", (event)=>{
     event.preventDefault()
-})
-
-premierePos.addEventListener("drop", (event)=>{
-    premierePos.replaceWith(dragtest)
-})
+    })
+    pos[index].addEventListener("drop", (event)=>{
+        event.target.replaceChildren(dragtest.children[0])
+        console.log(event.target)
+    }) 
+}
 
 
 function mainBarre() {
