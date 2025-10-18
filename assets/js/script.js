@@ -9,6 +9,13 @@ function genererCondition(listecondition) {
     generCarte(cartes, cartesenmain)
 }
 
+function listerTouteLescartes(cartes) {
+    for (let index = 0; index < cartes.length; index++) {
+        console.log(cartes[index].nom)
+        
+    }
+}
+
 function generCarte(cartes, cartesenmain) {
     for (let index = 0; index < 3; index++) {
         let i = Math.floor(Math.random() * cartes.length)
@@ -24,6 +31,7 @@ function reset() {
 }
 
 function jouer() {
+    listerTouteLescartes(cartes)
     reset()
     genererCondition(listecondition)
 }

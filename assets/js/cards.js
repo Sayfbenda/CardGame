@@ -6,6 +6,17 @@ mygale.vie = 18*360
 mygale.image = 'assets/img/mygale.jpg'
 cartes.push(mygale)
 
+let noir = {
+    nom : "Test",
+    taille : "Test",
+    Tarte : "Test",
+}
+
+Object.getOwnPropertyNames
+
+console.log(noir.getOwnPropertyNames)
+
+
 let crocodile = new Object()
 crocodile.nom = "Crocodile du Nil"
 crocodile.taille = 5500
