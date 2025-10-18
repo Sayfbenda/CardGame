@@ -1,0 +1,19 @@
+:root{
+    --body-color : linear-gradient(to right, #18230f, #1c2813, #1f2e16, #233319, #27391c);
+    --container-color : linear-gradient(to right, #27391c, #294222, #294b28, #285530, #255f38);
+}
+*{
+    padding: 0;
+    margin: 0;
+}
+
+
+body {
+    height: 100vh;
+    background: var(--body-color);
+}
+
+header{
+    background: var(--container-color);
+    height: 10vh;
+}
