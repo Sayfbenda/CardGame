@@ -4,8 +4,11 @@
 }
 
 :root{
-    --body-color : linear-gradient(to right, #18230f, #1c2813, #1f2e16, #233319, #27391c);
-    --container-color : linear-gradient(to right, #27391c, #294222, #294b28, #285530, #255f38);
+    --body-principal-color : #262a2d;
+    --body-second-color : #343B3B;
+    --palett-firstgreen-color : #637658;
+    --palett-secondgreen-color : #868A4E;
+    --palett-thirdgreen-color : #BDB64D;
     --text-font : 'Mont'
 }
 *{
@@ -16,29 +19,5 @@
 
 body {
     height: 100vh;
-    background: var(--body-color);
-}
-
-header{
-    background: var(--container-color);
-    height: 10vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Mont';
-    font-weight: 800;
-    color: white;
-}
-
-header > nav{
-    width: 100%;
-}
-
-header > nav > ul{
-    display: flex;
-    justify-content: space-around;
-}
-
-ul{
-    list-style: none;
+    background: var(--body-principal-color);
 }
