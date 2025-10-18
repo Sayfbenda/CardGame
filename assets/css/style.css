@@ -1,6 +1,12 @@
+@font-face {
+    font-family: Mont;
+    src: url(../font/Montserrat-Regular.ttf);
+}
+
 :root{
     --body-color : linear-gradient(to right, #18230f, #1c2813, #1f2e16, #233319, #27391c);
     --container-color : linear-gradient(to right, #27391c, #294222, #294b28, #285530, #255f38);
+    --text-font : 'Mont'
 }
 *{
     padding: 0;
@@ -16,4 +22,23 @@ body {
 header{
     background: var(--container-color);
     height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Mont';
+    font-weight: 800;
+    color: white;
+}
+
+header > nav{
+    width: 100%;
+}
+
+header > nav > ul{
+    display: flex;
+    justify-content: space-around;
+}
+
+ul{
+    list-style: none;
 }
