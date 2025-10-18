@@ -18,11 +18,24 @@
     margin: 0;
 }
 
-
 body {
     height: 100vh;
     background: var(--body-principal-color);
     font-family: 'Mont';
+    color: var(--text-color);
+}
+
+a{
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+button{
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    font-family: var(--text-font);
+    background-color: var(--body-second-color);
     color: var(--text-color);
 }
 
@@ -33,11 +46,22 @@ header{
 }
 
 nav{
+    display: flex;
+    justify-content: space-around;
     width: 100%;
+}
+
+header > nav > div > img{
+    width: 3vw;
 }
 
 header > nav > ul{
     display: flex;
-    justify-content: space-around;
-    list-style: none;
+    gap: 2rem;
+    align-items: center;
+}
+header > nav > div{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
 }
