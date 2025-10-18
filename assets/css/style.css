@@ -9,6 +9,8 @@
     --palett-firstgreen-color : #637658;
     --palett-secondgreen-color : #868A4E;
     --palett-thirdgreen-color : #BDB64D;
+    
+    --text-color : white;
     --text-font : 'Mont'
 }
 *{
@@ -20,4 +22,22 @@
 body {
     height: 100vh;
     background: var(--body-principal-color);
+    font-family: 'Mont';
+    color: var(--text-color);
+}
+
+header{
+    display: flex;
+    align-items: center;
+    height: 5vh;
+}
+
+nav{
+    width: 100%;
+}
+
+header > nav > ul{
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
 }
