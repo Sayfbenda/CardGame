@@ -18,9 +18,13 @@
     margin: 0;
 }
 
+body::-webkit-scrollbar{
+    display: none;
+}
+
 body {
     height: 100vh;
-    background: var(--body-principal-color);
+    background: var(--body-second-color);
     font-family: 'Mont';
     color: var(--text-color);
 }
@@ -35,7 +39,7 @@ button{
     border-radius: 0.5rem;
     border: none;
     font-family: var(--text-font);
-    background-color: var(--body-second-color);
+    background-color: var(--body-principal-color);
     color: var(--text-color);
 }
 
@@ -52,7 +56,7 @@ nav{
 }
 
 header > nav > div > img{
-    width: 3vw;
+    width: 2vw;
 }
 
 header > nav > ul{
@@ -64,4 +68,15 @@ header > nav > div{
     display: flex;
     align-items: center;
     gap: 2rem;
+}
+
+main > section {
+    height: 100vh;
+    background: var(--body-principal-color);
+    margin: 0 1rem 0 1rem;
+}
+
+main > section:nth-child(1){
+    border-radius: 1rem 1rem 0 0;
+    height: 95vh;
 }

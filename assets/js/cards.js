@@ -1,17 +1,3 @@
-let cartes = []
-let cartesenmain = []
-let condition = ["Taille", "Poid", "Espérence de vie"]
-const titrecondition = document.getElementById("condition") 
-const premierePos = document.getElementById("premiereposition")
-const deuxiemePos = document.getElementById("deuxiemeposition")
-const troisiemePos = document.getElementById("troisiemeposition")
-const premiereMainPos = document.getElementById("premieremain")
-const deuxiemeMainPos = document.getElementById("deuxiememain")
-const troisiemeMainPos = document.getElementById("troisiememain")
-const posiotionmain = [premiereMainPos, deuxiemeMainPos, troisiemeMainPos]
-const pos = [deuxiemePos, premierePos , troisiemePos]
-let dragtest = ""
-
 let mygale = new Object()
 mygale.nom = "La mygale"
 mygale.taille = 110
