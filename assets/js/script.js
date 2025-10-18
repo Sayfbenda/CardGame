@@ -13,12 +13,9 @@ function generCarte(cartes, cartesenmain) {
     for (let index = 0; index < 3; index++) {
         let i = Math.floor(Math.random() * cartes.length)
         let carte = cartes[i]
+        cartes.splice(i, 1)
         cartesenmain.push(carte)
-        cartes.splice[carte , 1]
-    }
-    for (let index = 0; index < cartesenmain.length; index++) {
         console.log(cartesenmain[index].nom)
-        
     }
 }
 
