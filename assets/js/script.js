@@ -17,6 +17,8 @@ let cartePos = [premiereplace, deuxiemeplace, troisiemeplace]
 let conditionindex = 0
 let condition = ""
 
+let dragtarget
+let droptarget 
 
 function genererCondition(listecondition) {
     conditionindex = Math.floor(Math.random() * listecondition.length)
@@ -55,27 +57,31 @@ function afficherCarte() {
 }
 
 
-
 for (let index = 0; index < carteMainPos.length; index++) {
     carteMainPos[index].addEventListener("dragstart", (event)=>{
-        console.log(event)
+        dragtarget = event.target
+        console.log(dragtarget)
     })
     carteMainPos[index].addEventListener("dragover", (event)=>{
+        droptarget = event.target
         event.preventDefault()
     })
     carteMainPos[index].addEventListener("drop", (event)=>{
-        
+        event.target.replaceWith(dragtarget)
+        dragtarget.setAttribute("draggable", false)
     })
     cartePos[index].addEventListener("dragstart", (event)=>{
-        console.log(event)
+        dragtarget = event.target
+        console.log(dragtarget)
     })
     cartePos[index].addEventListener("dragover", (event)=>{
+        droptarget = event.target
         event.preventDefault()
     })
     cartePos[index].addEventListener("drop", (event)=>{
-        console.log(event.target.children)
+        event.target.replaceWith(dragtarget)
+        dragtarget.setAttribute("draggable", false)
     })
-    
 }
 
 
