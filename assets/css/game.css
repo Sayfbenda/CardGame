@@ -10,12 +10,14 @@ a{
     color: var(--text-color);
 }
 
-button{
-    padding: 0.5rem 1rem 0.5rem 1rem;
+main > section > button{
+    display: flex;
+    padding: 20vh 5vw 20vh 5vw;
+    width: fit-content;
     border-radius: 0.5rem;
     border: none;
     font-family: var(--text-font);
-    background-color: var(--body-principal-color);
+    background-color: var(--body-second-color);
     color: var(--text-color);
 }
 
@@ -54,6 +56,7 @@ main > section {
 
 main > section:nth-child(1){
     display: flex;
+    align-items: center;
     flex-direction: column;
     justify-content: center;
     border-radius: 1rem 1rem 0 0;
