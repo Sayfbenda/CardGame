@@ -87,6 +87,15 @@ function verifier() {
             verifierCarte.push(h2value)
         }
         console.log(verifierCarte)   
+        verifierResulta(verifierCarte)
+    }
+}
+
+function verifierResulta(verifierCarte) {
+    if (verifierCarte[0] > verifierCarte[1] && verifierCarte[1] > verifierCarte[2]){
+        console.log("le goat")
+    }else{
+        console.log("le noob")
     }
 }
 
