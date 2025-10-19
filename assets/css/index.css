@@ -134,3 +134,12 @@ main > section:nth-child(2) > article > div > fieldset:nth-child(2){
 main > section:nth-child(2) > article > div > fieldset:nth-child(3){
     transform: rotate(5deg);
 }
+
+main > section:nth-child(3){
+    height: 50vh;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+footer{
+    height: 50vh;
+}
