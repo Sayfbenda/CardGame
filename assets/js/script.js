@@ -1,22 +1,23 @@
 let cartes = []
 let cartesenmain = []
+let premierecarte = document.getElementById("premierecarte")
+let deuxiemecarte = document.getElementById("deuxiemecarte")
+let troisiemecarte = document.getElementById("troisiemecarte")
+let listescartes = [premierecarte, deuxiemecarte, troisiemecarte]
 let listecondition = ["Taille", "Poid", "Espérence de vie"]
+let conditionindex = 0
+let condition = ""
+
 
 function genererCondition(listecondition) {
-    let index = Math.floor(Math.random() * listecondition.length)
-    let condition = listecondition[index]
+    conditionindex = Math.floor(Math.random() * listecondition.length)
+    let condition = listecondition[conditionindex]
     console.log("La condition de la partie est la suivante : ", condition)
-    generCarte(cartes, cartesenmain)
+    conditionManage(conditionindex)
+    genererCarte(cartes, cartesenmain)
 }
 
-function listerTouteLescartes(cartes) {
-    for (let index = 0; index < cartes.length; index++) {
-        console.log(cartes[index].nom)
-        
-    }
-}
-
-function generCarte(cartes, cartesenmain) {
+function genererCarte(cartes, cartesenmain) {
     for (let index = 0; index < 3; index++) {
         let i = Math.floor(Math.random() * cartes.length)
         let carte = cartes[i]
@@ -26,12 +27,36 @@ function generCarte(cartes, cartesenmain) {
     }
 }
 
+function conditionManage(conditionindex) {
+    
+    console.log(condition)
+}
+
+function afficherCarte() {
+    for (let index = 0; index < listescartes.length; index++) {
+        if (conditionindex == 0){
+            condition = `<h3>${cartesenmain[index].taille}</h3>`
+        }else if (conditionindex == 1){
+            condition = `<h3>${cartesenmain[index].poid}</h3>`
+        }else{
+            condition = `<h3>${cartesenmain[index].vie}</h3>`
+        }
+        console.log(condition)
+        let html = `
+        <h2>${cartesenmain[index].nom}</h2>
+        <img src="${cartesenmain[index].image}" alt="">
+        ${condition}
+        `
+        listescartes[index].innerHTML = html
+    }
+}
+
 function reset() {
     cartesenmain = []
 }
 
 function jouer() {
-    listerTouteLescartes(cartes)
     reset()
     genererCondition(listecondition)
+    afficherCarte()
 }

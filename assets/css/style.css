@@ -56,7 +56,7 @@ nav{
 }
 
 header > nav > div > img{
-    width: 2vw;
+    height: 2rem;
 }
 
 header > nav > ul{
@@ -79,4 +79,16 @@ main > section {
 main > section:nth-child(1){
     border-radius: 1rem 1rem 0 0;
     height: 95vh;
+}
+
+main > section > div{
+    display: flex;
+}
+main > section > div > fieldset{
+    width: 30vw;
+    height: 75vh;
+}
+
+main > section > div > fieldset > img{
+    width: 100%;
 }
