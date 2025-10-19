@@ -1,5 +1,6 @@
 let cartes = []
 let cartesenmain = []
+let verifierCarte = []
 
 let premierecarte = document.getElementById("premierecarte")
 let deuxiemecarte = document.getElementById("deuxiemecarte")
@@ -9,6 +10,7 @@ let premiereplace = document.getElementById("premiereplace")
 let deuxiemeplace = document.getElementById("deuxiemeplace")
 let troisiemeplace = document.getElementById("troisiemeplace")
 
+let divverifier = document.getElementById("verifier")
 
 let carteMainPos = [premierecarte, deuxiemecarte, troisiemecarte]
 let listecondition = ["Taille", "Poid", "Espérence de vie"]
@@ -84,6 +86,14 @@ for (let index = 0; index < carteMainPos.length; index++) {
     })
 }
 
+function verifier() {
+    for (let index = 0; index < 3; index++) {
+        let fieldset = divverifier.children[index]
+        let h2value = parseInt(fieldset.children[2].innerHTML)
+        verifierCarte.push(h2value)
+    }
+    console.log(verifierCarte)
+}
 
 function reset() {
     cartesenmain = []
