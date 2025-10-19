@@ -1,0 +1,102 @@
+body {
+    height: 100vh;
+    background: var(--body-second-color);
+    font-family: 'Mont';
+    color: var(--text-color);
+}
+
+a{
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+button{
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    font-family: var(--text-font);
+    background-color: var(--body-principal-color);
+    color: var(--text-color);
+}
+
+header{
+    display: flex;
+    align-items: center;
+    height: 5vh;
+}
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+header > nav > div > img{
+    height: 2rem;
+}
+
+header > nav > ul{
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+header > nav > div{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+main > section {
+    height: 100vh;
+    background: var(--body-principal-color);
+    margin: 0 1rem 0 1rem;
+}
+
+main > section:nth-child(1){
+    border-radius: 0.5rem 0.5rem 0 0;
+    height: 70vh;
+    background-size: cover;
+    background-image: url(../img/indexbackground.jpg);
+}
+
+main > section:nth-child(1) > article{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
+    align-items: center;
+    height: 100%;
+}
+
+main > section:nth-child(1) > article > h1{
+    font-size: 6rem;
+}
+
+main > section:nth-child(1) > article > div{
+    display: flex;
+    gap: 3rem;
+}
+main > section:nth-child(1) > article > div > fieldset{
+    width: 10vw;
+    height: 30vh;
+}
+
+main > section:nth-child(1) > article > div > fieldset:nth-child(1){
+    transform: rotate(-10deg);
+    translate: 0 0.5rem;
+}
+main > section:nth-child(1) > article > div > fieldset:nth-child(2){
+    transform: rotate(-3deg);
+    translate: 0 -1rem;
+}
+main > section:nth-child(1) > article > div > fieldset:nth-child(3){
+    translate: 0 -1.5rem;
+}
+main > section:nth-child(1) > article > div > fieldset:nth-child(5){
+    transform: rotate(10deg);
+    translate: 0 0.5rem;
+}
+main > section:nth-child(1) > article > div > fieldset:nth-child(4){
+    transform: rotate(3deg);
+    translate: 0 -1rem;
+}
