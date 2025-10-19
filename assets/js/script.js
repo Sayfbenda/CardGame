@@ -1,7 +1,6 @@
 let cartesenmain = []
 let verifierCarte = []
 let copieCarte = []
-console.log(copieCarte)
 
 let premierecarte = document.getElementById("premierecarte")
 let deuxiemecarte = document.getElementById("deuxiemecarte")
@@ -25,11 +24,15 @@ let divcartemain = document.getElementById("divcartemain")
 let btnjouer = document.getElementById("btnjouer")
 let sectionjouer = document.getElementById("sectionjouer")
 
+let fieldset
+let h2value
+
 function listeCarteCopie() {
     for (let index = 0; index < cartes.length; index++) {
         copieCarte.push(cartes[index]) 
     }
 }
+listeCarteCopie()
 
 function listeCarte() {
     for (let index = 0; index < copieCarte.length; index++) {
@@ -66,19 +69,20 @@ function ajouterFieldsets() {
 
 
 function jouer() {
-    listeCarteCopie()
-    reset()
+    variables()
+    ajouterFieldsets()
     affhicherFieldsets()
+    variables()
     dragAndDrop()
     genererCondition(listecondition)
     afficherCarte()
 }
 
 function variables() {
+    verifierCarte = []
     cartesenmain = []
+    cartes = []
     listeCarte()
-    console.log(copieCarte)
-    console.log(cartes)
     divverifier = document.getElementById("verifier")
     divcartemain = document.getElementById("divcartemain")
     btnjouer = document.getElementById("btnjouer")
@@ -119,9 +123,6 @@ function genererCarte(cartes, cartesenmain) {
         let carte = cartes[i]
         cartes.splice(i, 1)
         cartesenmain.push(carte)
-        console.log(cartesenmain[index])
-        console.log(cartesenmain[index].nom)
-        console.log("test",copieCarte)
     }
 }
 
@@ -134,7 +135,6 @@ function afficherCarte() {
         }else{
             condition = `<h3>${cartesenmain[index].vie}</h3>`
         }
-        console.log(condition)
         const html = `
         <h2>${cartesenmain[index].nom}</h2>
         <img src="${cartesenmain[index].image}" alt="" draggable="false">
@@ -148,12 +148,9 @@ function dragAndDrop() {
     for (let index = 0; index < carteMainPos.length; index++) {
     carteMainPos[index].addEventListener("dragstart", (event)=>{
         dragtarget = event.target
-        console.log(dragtarget)
-        console.log(divcartemain.children)
     })
     cartePos[index].addEventListener("dragstart", (event)=>{
         dragtarget = event.target
-        console.log(dragtarget)
     })
     cartePos[index].addEventListener("dragover", (event)=>{
         event.preventDefault()
@@ -169,11 +166,10 @@ function dragAndDrop() {
 function verifier() {
     if (divcartemain.children.length == 0) {
         for (let index = 0; index < 3; index++) {
-            let fieldset = divverifier.children[index]
-            let h2value = parseInt(fieldset.children[2].innerHTML)
+            fieldset = divverifier.children[index]
+            h2value = parseInt(fieldset.children[2].innerHTML)
             verifierCarte.push(h2value)
         }
-        console.log(verifierCarte)   
         verifierResultat(verifierCarte)
     }
 }
@@ -181,7 +177,7 @@ function verifier() {
 function verifierResultat(verifierCarte) {
     if (verifierCarte[0] > verifierCarte[1] && verifierCarte[1] > verifierCarte[2]){
         console.log("le goat")
-        reset()
+        jouer()
     }else{
         console.log("le noob")
     }
@@ -193,13 +189,7 @@ function affhicherFieldsets() {
     btnjouer.style.setProperty("visibility", "hidden")
 }
 
-function reset() {
-    ajouterFieldsets()
-    variables()
-    dragAndDrop()
-    genererCondition(listecondition)
-    afficherCarte()
-}
+
 
 
 
