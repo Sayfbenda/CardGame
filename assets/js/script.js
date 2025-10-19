@@ -10,17 +10,17 @@ const premiereplace = document.getElementById("premiereplace")
 const deuxiemeplace = document.getElementById("deuxiemeplace")
 const troisiemeplace = document.getElementById("troisiemeplace")
 
-let divverifier = document.getElementById("verifier")
+const divverifier = document.getElementById("verifier")
+const divcartemain = document.getElementById("divcartemain")
 
-let carteMainPos = [premierecarte, deuxiemecarte, troisiemecarte]
+const carteMainPos = [premierecarte, deuxiemecarte, troisiemecarte]
 const listecondition = ["Taille", "Poid", "Espérence de vie"]
-let cartePos = [premiereplace, deuxiemeplace, troisiemeplace]
+const cartePos = [premiereplace, deuxiemeplace, troisiemeplace]
 
 let conditionindex = 0
 let condition = ""
 
 let dragtarget
-let droptarget 
 
 function genererCondition(listecondition) {
     conditionindex = Math.floor(Math.random() * listecondition.length)
@@ -63,36 +63,31 @@ for (let index = 0; index < carteMainPos.length; index++) {
     carteMainPos[index].addEventListener("dragstart", (event)=>{
         dragtarget = event.target
         console.log(dragtarget)
-    })
-    carteMainPos[index].addEventListener("dragover", (event)=>{
-        droptarget = event.target
-        event.preventDefault()
-    })
-    carteMainPos[index].addEventListener("drop", (event)=>{
-        event.target.replaceWith(dragtarget)
-        dragtarget.setAttribute("draggable", false)
+        console.log(divcartemain.children)
     })
     cartePos[index].addEventListener("dragstart", (event)=>{
         dragtarget = event.target
         console.log(dragtarget)
     })
     cartePos[index].addEventListener("dragover", (event)=>{
-        droptarget = event.target
         event.preventDefault()
     })
     cartePos[index].addEventListener("drop", (event)=>{
         event.target.replaceWith(dragtarget)
         dragtarget.setAttribute("draggable", false)
+        verifier()
     })
 }
 
 function verifier() {
-    for (let index = 0; index < 3; index++) {
-        let fieldset = divverifier.children[index]
-        let h2value = parseInt(fieldset.children[2].innerHTML)
-        verifierCarte.push(h2value)
+    if (divcartemain.children.length == 0) {
+        for (let index = 0; index < 3; index++) {
+            let fieldset = divverifier.children[index]
+            let h2value = parseInt(fieldset.children[2].innerHTML)
+            verifierCarte.push(h2value)
+        }
+        console.log(verifierCarte)   
     }
-    console.log(verifierCarte)
 }
 
 function reset() {
