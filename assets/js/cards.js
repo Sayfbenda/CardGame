@@ -1,3 +1,5 @@
+let cartes = []
+
 let mygale = new Object()
 mygale.nom = "La mygale"
 mygale.taille = 110

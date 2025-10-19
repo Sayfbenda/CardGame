@@ -1,13 +1,15 @@
-let cartes = []
 let cartesenmain = []
 let verifierCarte = []
+cartes = []
+let copieCarte = cartes
 
 const divverifier = document.getElementById("verifier")
 const divcartemain = document.getElementById("divcartemain")
 const btnjouer = document.getElementById("btnjouer")
+const sectionjouer = document.getElementById("sectionjouer")
 
 function ajouterFieldsets() {
-    const premierhtml = `
+    let premierhtml = `
     <fieldset id="premiereplace" draggable="false">
                 
                 </fieldset>
@@ -19,7 +21,7 @@ function ajouterFieldsets() {
                 </fieldset>
     `
     divverifier.innerHTML = premierhtml
-    const deuxiemehtml = `
+    let deuxiemehtml = `
     <fieldset id="premierecarte" draggable="true">
 
                 </fieldset>
@@ -34,6 +36,14 @@ function ajouterFieldsets() {
 }
 
 ajouterFieldsets()
+
+function jouer() {
+    reset()
+    affhicherFieldsets()
+    dragAndDrop()
+    genererCondition(listecondition)
+    afficherCarte()
+}
 
 const premierecarte = document.getElementById("premierecarte")
 const deuxiemecarte = document.getElementById("deuxiemecarte")
@@ -56,14 +66,14 @@ function genererCondition(listecondition) {
     conditionindex = Math.floor(Math.random() * listecondition.length)
     let condition = listecondition[conditionindex]
     console.log("La condition de la partie est la suivante : ", condition)
-    genererCarte(cartes, cartesenmain)
+    genererCarte(copieCarte, cartesenmain)
 }
 
-function genererCarte(cartes, cartesenmain) {
+function genererCarte(copieCarte, cartesenmain) {
     for (let index = 0; index < 3; index++) {
-        let i = Math.floor(Math.random() * cartes.length)
-        let carte = cartes[i]
-        cartes.splice(i, 1)
+        let i = Math.floor(Math.random() * copieCarte.length)
+        let carte = copieCarte[i]
+        copieCarte.splice(i, 1)
         cartesenmain.push(carte)
         console.log(cartesenmain[index].nom)
     }
@@ -118,13 +128,14 @@ function verifier() {
             verifierCarte.push(h2value)
         }
         console.log(verifierCarte)   
-        verifierResulta(verifierCarte)
+        verifierResultat(verifierCarte)
     }
 }
 
-function verifierResulta(verifierCarte) {
+function verifierResultat(verifierCarte) {
     if (verifierCarte[0] > verifierCarte[1] && verifierCarte[1] > verifierCarte[2]){
         console.log("le goat")
+        reset()
     }else{
         console.log("le noob")
     }
@@ -138,14 +149,8 @@ function affhicherFieldsets() {
 
 function reset() {
     cartesenmain = []
+    copieCarte = cartes
 }
 
-function jouer() {
-    affhicherFieldsets()
-    console.log(premierecarte)
-    dragAndDrop()
-    reset()
-    genererCondition(listecondition)
-    afficherCarte()
-}
+
 
