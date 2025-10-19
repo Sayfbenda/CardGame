@@ -47,14 +47,13 @@ header > nav > div{
 }
 
 main > section {
-    height: 100vh;
     background: var(--body-principal-color);
     margin: 0 1rem 0 1rem;
 }
 
 main > section:nth-child(1){
     border-radius: 0.5rem 0.5rem 0 0;
-    height: 70vh;
+    height: 80vh;
     background-size: cover;
     background-image: url(../img/indexbackground.jpg);
 }
@@ -99,4 +98,39 @@ main > section:nth-child(1) > article > div > fieldset:nth-child(5){
 main > section:nth-child(1) > article > div > fieldset:nth-child(4){
     transform: rotate(3deg);
     translate: 0 -1rem;
+}
+
+main > section:nth-child(2){
+    height: 60vh;
+}
+
+main > section:nth-child(2) > article{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+}
+
+main > section:nth-child(2) > article > div{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+main > section:nth-child(2) > article > div > fieldset{
+    width: 30vw;
+    height: 40vh;
+}
+
+main > section:nth-child(2) > article > div > fieldset:nth-child(1){
+    transform: rotate(-5deg);
+}
+
+main > section:nth-child(2) > article > div > fieldset:nth-child(2){
+    translate: 0 -1.5rem;
+}
+
+main > section:nth-child(2) > article > div > fieldset:nth-child(3){
+    transform: rotate(5deg);
 }
