@@ -2,18 +2,18 @@ let cartes = []
 let cartesenmain = []
 let verifierCarte = []
 
-let premierecarte = document.getElementById("premierecarte")
-let deuxiemecarte = document.getElementById("deuxiemecarte")
-let troisiemecarte = document.getElementById("troisiemecarte")
+const premierecarte = document.getElementById("premierecarte")
+const deuxiemecarte = document.getElementById("deuxiemecarte")
+const troisiemecarte = document.getElementById("troisiemecarte")
 
-let premiereplace = document.getElementById("premiereplace")
-let deuxiemeplace = document.getElementById("deuxiemeplace")
-let troisiemeplace = document.getElementById("troisiemeplace")
+const premiereplace = document.getElementById("premiereplace")
+const deuxiemeplace = document.getElementById("deuxiemeplace")
+const troisiemeplace = document.getElementById("troisiemeplace")
 
 let divverifier = document.getElementById("verifier")
 
 let carteMainPos = [premierecarte, deuxiemecarte, troisiemecarte]
-let listecondition = ["Taille", "Poid", "Espérence de vie"]
+const listecondition = ["Taille", "Poid", "Espérence de vie"]
 let cartePos = [premiereplace, deuxiemeplace, troisiemeplace]
 
 let conditionindex = 0
