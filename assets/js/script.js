@@ -1,10 +1,19 @@
 let cartes = []
 let cartesenmain = []
+
 let premierecarte = document.getElementById("premierecarte")
 let deuxiemecarte = document.getElementById("deuxiemecarte")
 let troisiemecarte = document.getElementById("troisiemecarte")
-let listescartes = [premierecarte, deuxiemecarte, troisiemecarte]
+
+let premiereplace = document.getElementById("premiereplace")
+let deuxiemeplace = document.getElementById("deuxiemeplace")
+let troisiemeplace = document.getElementById("troisiemeplace")
+
+
+let carteMainPos = [premierecarte, deuxiemecarte, troisiemecarte]
 let listecondition = ["Taille", "Poid", "Espérence de vie"]
+let cartePos = [premiereplace, deuxiemeplace, troisiemeplace]
+
 let conditionindex = 0
 let condition = ""
 
@@ -13,7 +22,6 @@ function genererCondition(listecondition) {
     conditionindex = Math.floor(Math.random() * listecondition.length)
     let condition = listecondition[conditionindex]
     console.log("La condition de la partie est la suivante : ", condition)
-    conditionManage(conditionindex)
     genererCarte(cartes, cartesenmain)
 }
 
@@ -27,13 +35,8 @@ function genererCarte(cartes, cartesenmain) {
     }
 }
 
-function conditionManage(conditionindex) {
-    
-    console.log(condition)
-}
-
 function afficherCarte() {
-    for (let index = 0; index < listescartes.length; index++) {
+    for (let index = 0; index < carteMainPos.length; index++) {
         if (conditionindex == 0){
             condition = `<h3>${cartesenmain[index].taille}</h3>`
         }else if (conditionindex == 1){
@@ -44,12 +47,37 @@ function afficherCarte() {
         console.log(condition)
         let html = `
         <h2>${cartesenmain[index].nom}</h2>
-        <img src="${cartesenmain[index].image}" alt="">
+        <img src="${cartesenmain[index].image}" alt="" draggable="false">
         ${condition}
         `
-        listescartes[index].innerHTML = html
+        carteMainPos[index].innerHTML = html
     }
 }
+
+
+
+for (let index = 0; index < carteMainPos.length; index++) {
+    carteMainPos[index].addEventListener("dragstart", (event)=>{
+        console.log(event)
+    })
+    carteMainPos[index].addEventListener("dragover", (event)=>{
+        event.preventDefault()
+    })
+    carteMainPos[index].addEventListener("drop", (event)=>{
+        
+    })
+    cartePos[index].addEventListener("dragstart", (event)=>{
+        console.log(event)
+    })
+    cartePos[index].addEventListener("dragover", (event)=>{
+        event.preventDefault()
+    })
+    cartePos[index].addEventListener("drop", (event)=>{
+        console.log(event.target.children)
+    })
+    
+}
+
 
 function reset() {
     cartesenmain = []
