@@ -1,12 +1,41 @@
 let cartesenmain = []
 let verifierCarte = []
-cartes = []
-let copieCarte = cartes
+let copieCarte = []
+console.log(copieCarte)
 
-const divverifier = document.getElementById("verifier")
-const divcartemain = document.getElementById("divcartemain")
-const btnjouer = document.getElementById("btnjouer")
-const sectionjouer = document.getElementById("sectionjouer")
+let premierecarte = document.getElementById("premierecarte")
+let deuxiemecarte = document.getElementById("deuxiemecarte")
+let troisiemecarte = document.getElementById("troisiemecarte")
+
+let premiereplace = document.getElementById("premiereplace")
+let deuxiemeplace = document.getElementById("deuxiemeplace")
+let troisiemeplace = document.getElementById("troisiemeplace")
+
+let carteMainPos = [premierecarte, deuxiemecarte, troisiemecarte]
+let listecondition = ["Taille", "Poid", "Espérence de vie"]
+let cartePos = [premiereplace, deuxiemeplace, troisiemeplace]
+
+let conditionindex = 0
+let condition = ""
+
+let dragtarget
+
+let divverifier = document.getElementById("verifier")
+let divcartemain = document.getElementById("divcartemain")
+let btnjouer = document.getElementById("btnjouer")
+let sectionjouer = document.getElementById("sectionjouer")
+
+function listeCarteCopie() {
+    for (let index = 0; index < cartes.length; index++) {
+        copieCarte.push(cartes[index]) 
+    }
+}
+
+function listeCarte() {
+    for (let index = 0; index < copieCarte.length; index++) {
+        cartes.push(copieCarte[index]) 
+    }
+}
 
 function ajouterFieldsets() {
     let premierhtml = `
@@ -35,9 +64,9 @@ function ajouterFieldsets() {
     divcartemain.innerHTML = deuxiemehtml
 }
 
-ajouterFieldsets()
 
 function jouer() {
+    listeCarteCopie()
     reset()
     affhicherFieldsets()
     dragAndDrop()
@@ -45,37 +74,54 @@ function jouer() {
     afficherCarte()
 }
 
-const premierecarte = document.getElementById("premierecarte")
-const deuxiemecarte = document.getElementById("deuxiemecarte")
-const troisiemecarte = document.getElementById("troisiemecarte")
+function variables() {
+    cartesenmain = []
+    listeCarte()
+    console.log(copieCarte)
+    console.log(cartes)
+    divverifier = document.getElementById("verifier")
+    divcartemain = document.getElementById("divcartemain")
+    btnjouer = document.getElementById("btnjouer")
+    sectionjouer = document.getElementById("sectionjouer")
+    premierecarte = document.getElementById("premierecarte")
+    deuxiemecarte = document.getElementById("deuxiemecarte")
+    troisiemecarte = document.getElementById("troisiemecarte")
 
-const premiereplace = document.getElementById("premiereplace")
-const deuxiemeplace = document.getElementById("deuxiemeplace")
-const troisiemeplace = document.getElementById("troisiemeplace")
+    premiereplace = document.getElementById("premiereplace")
+    deuxiemeplace = document.getElementById("deuxiemeplace")
+    troisiemeplace = document.getElementById("troisiemeplace")
+    
+    premiereplace = document.getElementById("premiereplace")
+    deuxiemeplace = document.getElementById("deuxiemeplace")
+    troisiemeplace = document.getElementById("troisiemeplace")
 
-const carteMainPos = [premierecarte, deuxiemecarte, troisiemecarte]
-const listecondition = ["Taille", "Poid", "Espérence de vie"]
-const cartePos = [premiereplace, deuxiemeplace, troisiemeplace]
+    carteMainPos = [premierecarte, deuxiemecarte, troisiemecarte]
+    listecondition = ["Taille", "Poid", "Espérence de vie"]
+    cartePos = [premiereplace, deuxiemeplace, troisiemeplace]
 
-let conditionindex = 0
-let condition = ""
+    conditionindex = 0
+    condition = ""
 
-let dragtarget
+    dragtarget
+
+}
 
 function genererCondition(listecondition) {
     conditionindex = Math.floor(Math.random() * listecondition.length)
     let condition = listecondition[conditionindex]
     console.log("La condition de la partie est la suivante : ", condition)
-    genererCarte(copieCarte, cartesenmain)
+    genererCarte(cartes, cartesenmain)
 }
 
-function genererCarte(copieCarte, cartesenmain) {
+function genererCarte(cartes, cartesenmain) {
     for (let index = 0; index < 3; index++) {
-        let i = Math.floor(Math.random() * copieCarte.length)
-        let carte = copieCarte[i]
-        copieCarte.splice(i, 1)
+        let i = Math.floor(Math.random() * cartes.length)
+        let carte = cartes[i]
+        cartes.splice(i, 1)
         cartesenmain.push(carte)
+        console.log(cartesenmain[index])
         console.log(cartesenmain[index].nom)
+        console.log("test",copieCarte)
     }
 }
 
@@ -148,8 +194,11 @@ function affhicherFieldsets() {
 }
 
 function reset() {
-    cartesenmain = []
-    copieCarte = cartes
+    ajouterFieldsets()
+    variables()
+    dragAndDrop()
+    genererCondition(listecondition)
+    afficherCarte()
 }
 
 
