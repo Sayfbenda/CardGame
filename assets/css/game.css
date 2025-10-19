@@ -11,6 +11,7 @@ a{
 }
 
 main > section > button{
+    position: fixed;
     display: flex;
     padding: 20vh 5vw 20vh 5vw;
     width: fit-content;
@@ -19,6 +20,14 @@ main > section > button{
     font-family: var(--text-font);
     background-color: var(--body-second-color);
     color: var(--text-color);
+}
+
+#verifier{
+    visibility: hidden;
+}
+
+#divcartemain{
+    visibility: hidden;
 }
 
 header{

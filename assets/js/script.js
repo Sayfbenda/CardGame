@@ -2,6 +2,39 @@ let cartes = []
 let cartesenmain = []
 let verifierCarte = []
 
+const divverifier = document.getElementById("verifier")
+const divcartemain = document.getElementById("divcartemain")
+const btnjouer = document.getElementById("btnjouer")
+
+function ajouterFieldsets() {
+    const premierhtml = `
+    <fieldset id="premiereplace" draggable="false">
+                
+                </fieldset>
+                <fieldset id="deuxiemeplace" draggable="false">
+
+                </fieldset>
+                <fieldset id="troisiemeplace" draggable="false">
+
+                </fieldset>
+    `
+    divverifier.innerHTML = premierhtml
+    const deuxiemehtml = `
+    <fieldset id="premierecarte" draggable="true">
+
+                </fieldset>
+                <fieldset id="deuxiemecarte" draggable="true">
+
+                </fieldset>
+                <fieldset id="troisiemecarte" draggable="true">
+
+                </fieldset>
+    `
+    divcartemain.innerHTML = deuxiemehtml
+}
+
+ajouterFieldsets()
+
 const premierecarte = document.getElementById("premierecarte")
 const deuxiemecarte = document.getElementById("deuxiemecarte")
 const troisiemecarte = document.getElementById("troisiemecarte")
@@ -9,9 +42,6 @@ const troisiemecarte = document.getElementById("troisiemecarte")
 const premiereplace = document.getElementById("premiereplace")
 const deuxiemeplace = document.getElementById("deuxiemeplace")
 const troisiemeplace = document.getElementById("troisiemeplace")
-
-const divverifier = document.getElementById("verifier")
-const divcartemain = document.getElementById("divcartemain")
 
 const carteMainPos = [premierecarte, deuxiemecarte, troisiemecarte]
 const listecondition = ["Taille", "Poid", "Espérence de vie"]
@@ -49,7 +79,7 @@ function afficherCarte() {
             condition = `<h3>${cartesenmain[index].vie}</h3>`
         }
         console.log(condition)
-        let html = `
+        const html = `
         <h2>${cartesenmain[index].nom}</h2>
         <img src="${cartesenmain[index].image}" alt="" draggable="false">
         ${condition}
@@ -58,8 +88,8 @@ function afficherCarte() {
     }
 }
 
-
-for (let index = 0; index < carteMainPos.length; index++) {
+function dragAndDrop() {
+    for (let index = 0; index < carteMainPos.length; index++) {
     carteMainPos[index].addEventListener("dragstart", (event)=>{
         dragtarget = event.target
         console.log(dragtarget)
@@ -77,6 +107,7 @@ for (let index = 0; index < carteMainPos.length; index++) {
         dragtarget.setAttribute("draggable", false)
         verifier()
     })
+}
 }
 
 function verifier() {
@@ -99,12 +130,22 @@ function verifierResulta(verifierCarte) {
     }
 }
 
+function affhicherFieldsets() {
+    divverifier.style.setProperty("visibility", "visible")
+    divcartemain.style.setProperty("visibility", "visible")
+    btnjouer.style.setProperty("visibility", "hidden")
+}
+
 function reset() {
     cartesenmain = []
 }
 
 function jouer() {
+    affhicherFieldsets()
+    console.log(premierecarte)
+    dragAndDrop()
     reset()
     genererCondition(listecondition)
     afficherCarte()
 }
+
