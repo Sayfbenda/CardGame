@@ -10,7 +10,7 @@ a{
     color: var(--text-color);
 }
 
-main > section > button{
+main > section > button:first-child{
     position: fixed;
     display: flex;
     padding: 20vh 5vw 20vh 5vw;
@@ -20,6 +20,10 @@ main > section > button{
     font-family: var(--text-font);
     background-color: var(--body-second-color);
     color: var(--text-color);
+}
+
+main > section > button:last-child{
+    visibility: hidden;
 }
 
 #verifier{

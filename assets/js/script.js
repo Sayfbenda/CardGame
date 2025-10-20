@@ -26,6 +26,7 @@ let btnjouer = document.getElementById("btnjouer")
 let sectionjouer = document.getElementById("sectionjouer")
 let divscore = document.getElementById("score")
 let divcondition = document.getElementById("condition")
+let btnreset = document.getElementById("btnreset")
 
 let fieldset
 let h2value
@@ -103,6 +104,7 @@ function variables() {
     troisiemeplace = document.getElementById("troisiemeplace")
     divscore = document.getElementById("score")
     divcondition = document.getElementById("condition")
+    btnreset = document.getElementById("btnreset")
 
     carteMainPos = [premierecarte, deuxiemecarte, troisiemecarte]
     listecondition = ["Taille", "Poid", "Espérence de vie"]
@@ -197,6 +199,21 @@ function score(a) {
     divscore.innerHTML = html
 }
 
+function scorefinal(joueurscore) {
+    let html = `
+    <h3>${"Score final : ", joueurscore}</h3>
+    ` 
+    divscore.innerHTML = html
+}
+
+function resetScore() {
+    joueurscore = 0
+    let html = `
+    <h3>${"Score final : ", joueurscore}</h3>
+    ` 
+    divscore.innerHTML = html
+}
+
 function verifierResultat(verifierCarte) {
     if (verifierCarte[0] > verifierCarte[1] && verifierCarte[1] > verifierCarte[2]){
         console.log("le goat")
@@ -204,7 +221,17 @@ function verifierResultat(verifierCarte) {
         jouer()
     }else{
         console.log("le noob")
+        perdu()
     }
+}
+
+function boutonreset() {
+    btnreset.setAttribute("style", "visibility : visible")
+}
+
+function perdu() {
+    scorefinal(joueurscore)
+    boutonreset()
 }
 
 function affhicherFieldsets() {
