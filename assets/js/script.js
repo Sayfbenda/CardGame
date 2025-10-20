@@ -201,7 +201,7 @@ function score(a) {
 
 function scorefinal(joueurscore) {
     let html = `
-    <h3>${"Score final : ", joueurscore}</h3>
+    <h3>Score final : ${joueurscore}</h3>
     ` 
     divscore.innerHTML = html
 }
@@ -209,7 +209,7 @@ function scorefinal(joueurscore) {
 function resetScore() {
     joueurscore = 0
     let html = `
-    <h3>${"Score final : ", joueurscore}</h3>
+    <h3>${joueurscore}</h3>
     ` 
     divscore.innerHTML = html
 }
