@@ -27,6 +27,7 @@ let sectionjouer = document.getElementById("sectionjouer")
 let divscore = document.getElementById("score")
 let divcondition = document.getElementById("condition")
 let btnreset = document.getElementById("btnreset")
+let droptarget
 
 let fieldset
 let h2value
@@ -145,11 +146,11 @@ function genererCarte(cartes, cartesenmain) {
 function afficherCarte() {
     for (let index = 0; index < carteMainPos.length; index++) {
         if (conditionindex == 0){
-            condition = `<h3>${cartesenmain[index].taille}</h3>`
+            condition = `<h3 class="value">${cartesenmain[index].taille}</h3>`
         }else if (conditionindex == 1){
-            condition = `<h3>${cartesenmain[index].poid}</h3>`
+            condition = `<h3 class="value">${cartesenmain[index].poid}</h3>`
         }else{
-            condition = `<h3>${cartesenmain[index].vie}</h3>`
+            condition = `<h3 class="value">${cartesenmain[index].vie}</h3>`
         }
         const html = `
         <h2>${cartesenmain[index].nom}</h2>
@@ -158,6 +159,7 @@ function afficherCarte() {
         `
         carteMainPos[index].innerHTML = html
     }
+    cacherValeurs()
 }
 
 function dragAndDrop() {
@@ -177,6 +179,14 @@ function dragAndDrop() {
         verifier()
     })
 }
+}
+
+function cacherValeurs() {
+    let value = document.getElementsByClassName("value")
+    for (let index = 0; index < value.length; index++) {
+        value[index].setAttribute("style", "visibility : hidden")
+        
+    }
 }
 
 function verifier() {
