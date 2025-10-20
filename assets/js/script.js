@@ -1,6 +1,7 @@
 let cartesenmain = []
 let verifierCarte = []
 let copieCarte = []
+let joueurscore = 0
 
 let premierecarte = document.getElementById("premierecarte")
 let deuxiemecarte = document.getElementById("deuxiemecarte")
@@ -174,9 +175,15 @@ function verifier() {
     }
 }
 
+function score(a) {
+    joueurscore += a
+    console.log(joueurscore)
+}
+
 function verifierResultat(verifierCarte) {
     if (verifierCarte[0] > verifierCarte[1] && verifierCarte[1] > verifierCarte[2]){
         console.log("le goat")
+        score(1)
         jouer()
     }else{
         console.log("le noob")
