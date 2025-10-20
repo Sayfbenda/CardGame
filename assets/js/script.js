@@ -25,6 +25,7 @@ let divcartemain = document.getElementById("divcartemain")
 let btnjouer = document.getElementById("btnjouer")
 let sectionjouer = document.getElementById("sectionjouer")
 let divscore = document.getElementById("score")
+let divcondition = document.getElementById("condition")
 
 let fieldset
 let h2value
@@ -101,6 +102,7 @@ function variables() {
     deuxiemeplace = document.getElementById("deuxiemeplace")
     troisiemeplace = document.getElementById("troisiemeplace")
     divscore = document.getElementById("score")
+    divcondition = document.getElementById("condition")
 
     carteMainPos = [premierecarte, deuxiemecarte, troisiemecarte]
     listecondition = ["Taille", "Poid", "Espérence de vie"]
@@ -118,6 +120,15 @@ function genererCondition(listecondition) {
     let condition = listecondition[conditionindex]
     console.log("La condition de la partie est la suivante : ", condition)
     genererCarte(cartes, cartesenmain)
+    afficherCondition()
+}
+
+function afficherCondition() {
+    let condition = listecondition[conditionindex]
+    let html = `
+    <h2>Classez les cartes en fonction de cette condtion : ${condition}</h2>
+    `
+    divcondition.innerHTML = html
 }
 
 function genererCarte(cartes, cartesenmain) {
