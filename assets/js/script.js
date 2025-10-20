@@ -24,6 +24,7 @@ let divverifier = document.getElementById("verifier")
 let divcartemain = document.getElementById("divcartemain")
 let btnjouer = document.getElementById("btnjouer")
 let sectionjouer = document.getElementById("sectionjouer")
+let divscore = document.getElementById("score")
 
 let fieldset
 let h2value
@@ -99,6 +100,7 @@ function variables() {
     premiereplace = document.getElementById("premiereplace")
     deuxiemeplace = document.getElementById("deuxiemeplace")
     troisiemeplace = document.getElementById("troisiemeplace")
+    divscore = document.getElementById("score")
 
     carteMainPos = [premierecarte, deuxiemecarte, troisiemecarte]
     listecondition = ["Taille", "Poid", "Espérence de vie"]
@@ -178,6 +180,10 @@ function verifier() {
 function score(a) {
     joueurscore += a
     console.log(joueurscore)
+    let html = `
+    <h3>${joueurscore}</h3>
+    ` 
+    divscore.innerHTML = html
 }
 
 function verifierResultat(verifierCarte) {
