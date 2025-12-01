@@ -25,12 +25,15 @@ function GenerateRandomRegle(regles) {
     return regles[random]
 }
 
-function SetCardsToCardsPlace(cards) {
+function SetCardsToCardsPlace(cards, regle) {
+    const reglecondtion = regle.condtion
+    console.log(reglecondtion)
     const cardslots = document.getElementsByClassName("card-slot")
     for (let index = 0; index < cardslots.length; index++) {
         if (cardslots[index].children[0].classList.contains("back-face")) {
             cardslots[index].children[0].classList.remove("back-face")
             cardslots[index].children[0].setAttribute("style", `background-image : url('${cards[index].image}');`)
+            cardslots[index].children[0].setAttribute('data-label', `${cards[index][reglecondtion]}`)
         }
         
     }
@@ -57,9 +60,9 @@ function SetEmptyCards() {
 function Play() {
     SetEmptyCards()
     
-    GenerateRandomRegle(regles)
-    
-    SetCardsToCardsPlace(GenerateRandomCards(animaux))
+    const regle = GenerateRandomRegle(regles)
+    const cartes = GenerateRandomCards(animaux)
+    SetCardsToCardsPlace(cartes, regle)
 }
 
 Play()
