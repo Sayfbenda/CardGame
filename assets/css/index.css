@@ -13,7 +13,10 @@
     --radius-lg: 16px;
     --radius-md: 12px;
 }
-
+a{
+    text-decoration: none;
+    color: #0b2d33;
+}
 * {
     box-sizing: border-box;
     margin: 0;
@@ -102,7 +105,7 @@ main {
     width: 100%;
 }
 
-.instruction {
+#instruction {
     color: white;
     font-size: 1.8rem;
     margin-bottom: 40px;

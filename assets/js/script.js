@@ -20,6 +20,8 @@ function GenerateRandomCards(animaux) {
 
 function GenerateRandomRegle(regles) {
     const random = Math.floor(Math.random() * regles.length)
+    const divphrase = document.getElementById("instruction")
+    divphrase.innerText = regles[random].phrase
     return regles[random]
 }
 
@@ -35,6 +37,8 @@ function SetCardsToCardsPlace(cards) {
 }
 
 function Play() {
+    GenerateRandomRegle(regles)
+    
     SetCardsToCardsPlace(GenerateRandomCards(animaux))
 }
 
