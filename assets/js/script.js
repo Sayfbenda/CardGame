@@ -36,7 +36,27 @@ function SetCardsToCardsPlace(cards) {
     }
 }
 
+function SetEmptyCards() {
+    const timeline = document.getElementById("timeline")
+    timeline.innerHTML = ""
+    for (let index = 0; index < 5; index++) {
+        const html = `
+                <div class="drop-zone">
+                    <i class="ph-bold ph-plus"></i>
+                    <span>Place Card Here</span>
+                    <span>${index+1}</span>
+                </div>
+        `
+        timeline.insertAdjacentHTML("beforeend", html)
+        
+    }
+}
+
+
+
 function Play() {
+    SetEmptyCards()
+    
     GenerateRandomRegle(regles)
     
     SetCardsToCardsPlace(GenerateRandomCards(animaux))
