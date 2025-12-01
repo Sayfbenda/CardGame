@@ -1,52 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Cardline Challenge</title>
     <link rel="stylesheet" href="assets/css/game.css">
-    <script defer src="assets/js/cards.js"></script>
-    <script defer src="assets/js/script.js"></script>
-    <title>GameCard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/phosphor-icons"></script>
 </head>
 <body>
-    <header>
-        <nav>
-            <div>
-                <img src="assets/img/logo.png" alt="">
-                <span>CardGame</span>
+
+    <header class="top-bar">
+        <div class="logo">
+            <i class="ph-fill ph-cube"></i>
+            <span>Cardline Challenge</span>
+        </div>
+        
+        <div class="status-bar">
+            <div class="score">
+                <i class="ph-fill ph-trophy"></i> Score: 1,250
             </div>
-            <ul>
-                <a href="index.html">Acceuil</a>
-                <a href="game.html">Game</a>
-                <a href="#">About</a>
-            </ul>
-            <div>
-                <button>Login</button>
-                <button>Sign up</button>
-            </div>
-        </nav>
+            <button class="icon-btn"><i class="ph ph-question"></i></button>
+            <button class="icon-btn"><i class="ph ph-gear"></i></button>
+            <div class="avatar"></div>
+        </div>
     </header>
+
     <main>
-        <section id="sectionjouer">
-            <button id="btnjouer" onclick="jouer()">Jouer</button>
-            <div id="condition">
+        <h1 class="instruction">Place the card from Lighter to Heavier</h1>
+
+        <div class="timeline-wrapper">
+            <div class="label-side">
+                <span>LIGHTER</span>
+                <i class="ph-bold ph-arrow-right"></i>
+            </div>
+
+            <div class="timeline" id="timeline">
+                
+                <div class="card placed">
+                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1480044965905-832759667f0b?q=80&w=300&auto=format&fit=crop');"></div>
+                    </div>
+
+                <div class="card placed">
+                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1591561582301-7ce6588cc286?q=80&w=300&auto=format&fit=crop');"></div>
+                </div>
+
+                <div class="drop-zone">
+                    <i class="ph-bold ph-plus"></i>
+                    <span>Place Card Here</span>
+                </div>
+
+                <div class="card placed">
+                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1474511320723-9a56873867b5?q=80&w=300&auto=format&fit=crop');"></div>
+                </div>
 
             </div>
-            <div id="verifier">
-                
-            </div>
-            <div id="divcartemain">
-                
-            </div>
-            <div id="score">
 
+            <div class="label-side">
+                <span>HEAVIER</span>
+                <i class="ph-bold ph-arrow-right"></i>
             </div>
-            <button id="btnreset" onclick="jouer(), resetScore()">Rejouer</button>
-        </section>
+        </div>
     </main>
-    <footer>
 
-    </footer>
+    <section class="player-area">
+        <div class="hand-label">Your Hand</div>
+        
+        <div class="hand-container">
+            <div class="deck-slot">
+                <div class="card deck-card">
+                    <i class="ph-bold ph-cards"></i>
+                    <span>Draw Deck</span>
+                    <small>18 Left</small>
+                </div>
+            </div>
+
+            <div class="card-slot filled">
+                <div class="card hand-card back-face"></div>
+            </div>
+            
+            <div class="card-slot filled">
+                <div class="card hand-card back-face"></div>
+            </div>
+
+            <div class="card-slot filled">
+                <div class="card hand-card back-face"></div>
+            </div>
+
+            <div class="card-slot filled">
+                <div class="card hand-card back-face"></div>
+            </div>
+            
+            <div class="card-slot filled">
+                <div class="card hand-card back-face"></div>
+            </div>
+        </div>
+    </section>
+
 </body>
 </html>

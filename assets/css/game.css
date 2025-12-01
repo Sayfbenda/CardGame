@@ -1,90 +1,269 @@
+:root {
+    /* Palette de couleurs inspirée de l'image */
+    --bg-color: #a8a8a8; /* Gris texturé */
+    --text-color: #ffffff;
+    --card-bg: #fdf6e9; /* Beige crème */
+    --card-border: #eae0d0;
+    --slot-bg: #1c3d42; /* Le vert foncé/bleu des slots du bas */
+    --green-accent: #2ecc71; /* Vert néon pour la pioche/dropzone */
+    --drop-bg: rgba(46, 204, 113, 0.2);
+    
+    --card-width: 140px;
+    --card-height: 190px;
+    --radius-lg: 16px;
+    --radius-md: 12px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    /* Simulation de la texture bruitée du fond */
+    background-image: radial-gradient(#b0b0b0 20%, transparent 20%),
+                      radial-gradient(#a0a0a0 20%, transparent 20%);
+    background-size: 4px 4px;
     height: 100vh;
-    background: var(--body-second-color);
-    font-family: 'Mont';
-    color: var(--text-color);
-}
-
-a{
-    text-decoration: none;
-    color: var(--text-color);
-}
-
-main > section > button:first-child{
-    position: fixed;
     display: flex;
-    padding: 20vh 5vw 20vh 5vw;
-    width: fit-content;
-    border-radius: 0.5rem;
-    border: none;
-    font-family: var(--text-font);
-    background-color: var(--body-second-color);
-    color: var(--text-color);
-}
-
-main > section > button:last-child{
-    visibility: hidden;
-}
-
-#verifier{
-    visibility: hidden;
-}
-
-#divcartemain{
-    visibility: hidden;
-}
-
-header{
-    display: flex;
-    align-items: center;
-    height: 5vh;
-}
-
-nav{
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-}
-
-header > nav > div > img{
-    height: 2rem;
-}
-
-header > nav > ul{
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-}
-header > nav > div{
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-}
-
-main > section {
-    height: 100vh;
-    background: var(--body-principal-color);
-    margin: 0 1rem 0 1rem;
-}
-
-main > section:nth-child(1){
-    display: flex;
-    align-items: center;
     flex-direction: column;
-    justify-content: center;
-    border-radius: 1rem 1rem 0 0;
-    height: 95vh;
+    overflow: hidden; /* Empêche le scroll si pas nécessaire */
 }
 
-main > section > div{
+/* --- HEADER --- */
+.top-bar {
     display: flex;
-    justify-content: center;
-}
-main > section > div > fieldset{
-    width: 10vw;
-    height: 30vh;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    color: white;
 }
 
-main > section > div > fieldset > img{
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    font-size: 1.2rem;
+}
+
+.logo i { color: var(--green-accent); font-size: 1.5rem; }
+
+.status-bar {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.score {
+    font-weight: 600;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.score i { color: var(--green-accent); }
+
+.icon-btn {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    transition: background 0.2s;
+}
+
+.icon-btn:hover { background: rgba(255,255,255,0.4); }
+
+.avatar {
+    width: 36px;
+    height: 36px;
+    background: #e0d4bc;
+    border-radius: 50%;
+    border: 2px solid var(--green-accent);
+}
+
+/* --- MAIN CONTENT (TIMELINE) --- */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 100%;
+}
+
+.instruction {
+    color: white;
+    font-size: 1.8rem;
+    margin-bottom: 40px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.timeline-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 90%;
+    justify-content: center;
+}
+
+.label-side {
+    color: rgba(255,255,255,0.6);
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.timeline {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* --- CARDS DESIGN --- */
+.card {
+    width: var(--card-width);
+    height: var(--card-height);
+    background-color: var(--card-bg);
+    border-radius: var(--radius-lg);
+    border: 4px solid var(--card-border);
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: transform 0.2s;
+}
+
+.card.placed:hover {
+    transform: translateY(-5px);
+}
+
+.card-image {
+    width: 85%;
+    height: 85%;
+    background-size: cover;
+    background-position: center;
+    border-radius: var(--radius-md);
+    /* Ombre interne pour effet de profondeur comme sur l'image */
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.1); 
+}
+
+/* --- DROP ZONE --- */
+.drop-zone {
+    width: var(--card-width);
+    height: var(--card-height);
+    border: 3px dashed var(--green-accent);
+    background-color: var(--drop-bg);
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--green-accent);
+    font-weight: 600;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.drop-zone i { font-size: 2rem; }
+
+/* --- PLAYER HAND (BOTTOM) --- */
+.player-area {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.hand-label {
+    color: white;
+    font-weight: 700;
+    align-self: flex-start;
+    margin-left: 10%; /* Approximation pour aligner avec le deck */
+}
+
+.hand-container {
+    display: flex;
+    gap: 20px;
+}
+
+/* Slots sombres pour les cartes */
+.card-slot {
+    width: calc(var(--card-width) * 0.9); /* Un peu plus petit pour la main */
+    height: calc(var(--card-height) * 0.9);
+    background-color: var(--slot-bg);
+    border-radius: var(--radius-lg);
+    padding: 8px; /* Padding interne pour créer l'effet de cadre */
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.hand-card {
+    width: 100%;
+    height: 100%;
+    border: 2px solid var(--card-border);
+    border-radius: 8px; /* Radius un peu plus petit */
+    cursor: grab;
+}
+
+/* Design du dos de la carte */
+.back-face {
+    /* Pattern CSS pour imiter le dos complexe */
+    background-color: #2b5c63;
+    background-image: 
+        radial-gradient(circle at 50% 50%, transparent 50%, rgba(0,0,0,0.1) 50%),
+        repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.05) 10px, rgba(255,255,255,0.05) 20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Style spécifique pour la pioche (verte) */
+.deck-slot {
+    width: calc(var(--card-width) * 0.9);
+    height: calc(var(--card-height) * 0.9);
+    /* Pas de fond sombre pour le deck, juste transparent */
+}
+
+.deck-card {
+    width: 100%;
+    height: 100%;
+    background-color: var(--green-accent);
+    border: none;
+    color: #000;
+    cursor: pointer;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);
+}
+
+.deck-card i {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.deck-card small {
+    font-weight: 400;
+    text-transform: none;
+    font-size: 0.75rem;
+    margin-top: 2px;
 }
