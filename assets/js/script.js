@@ -24,7 +24,14 @@ function GenerateRandomRegle(regles) {
 }
 
 function SetCardsToCardsPlace(cards) {
-    console.log(cards)
+    const cardslots = document.getElementsByClassName("card-slot")
+    for (let index = 0; index < cardslots.length; index++) {
+        if (cardslots[index].children[0].classList.contains("back-face")) {
+            cardslots[index].children[0].classList.remove("back-face")
+            cardslots[index].children[0].setAttribute("style", `background-image : url('${cards[index].image}');`)
+        }
+        
+    }
 }
 
 function Play() {

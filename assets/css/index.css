@@ -222,6 +222,7 @@ main {
     border: 2px solid var(--card-border);
     border-radius: 8px; /* Radius un peu plus petit */
     cursor: grab;
+    background-size: cover;
 }
 
 /* Design du dos de la carte */
