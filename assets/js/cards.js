@@ -11,17 +11,16 @@ class Animal {
     }
 }
 
-let mygale = new Animal("La mygale", 110, 15, 18, "assets/img/mygale.jpg");
-let fourmi = new Animal("La fourmi", 0.01, 1, 1, "assets/img/fourmi.jpg");
-let abeille = new Animal("L'abeille", 0.1, 1.5, 3, "assets/img/abeille.jpg");
-let papillon = new Animal("Le monarque", 0.5, 10, 0.7, "assets/img/papillon.jpg");
+let fourmi = new Animal("La fourmi", 0.01, 1, 1, "assets/img/fourmi.png");
+let abeille = new Animal("L'abeille", 0.1, 1.5, 3, "assets/img/abeille.png");
+let papillon = new Animal("Le monarque", 0.5, 10, 0.7, "assets/img/papillon.png");
 let colibri = new Animal("Le colibri", 4, 10, 5, "assets/img/colibri.jpg");
 let scorpion = new Animal("Le scorpion", 30, 18, 5, "assets/img/scorpion.jpg");
 
-let chat = new Animal("Le chat domestique", 4500, 50, 15, "assets/img/chat.jpg");
-let chien = new Animal("Le labrador", 30000, 90, 12, "assets/img/chien.jpg");
-let loup = new Animal("Le loup gris", 40000, 150, 14, "assets/img/loup.jpg");
-let lion = new Animal("Le lion", 190000, 250, 12, "assets/img/lion.jpg");
+let chat = new Animal("Le chat domestique", 4500, 50, 15, "assets/img/chat.png");
+let chien = new Animal("Le labrador", 30000, 90, 12, "assets/img/chien.png");
+let loup = new Animal("Le loup gris", 40000, 150, 14, "assets/img/loup.png");
+let lion = new Animal("Le lion", 190000, 250, 12, "assets/img/lion.png");
 let elephant = new Animal("L'éléphant d'Afrique", 6000000, 330, 65, "assets/img/elephant.jpg");
 let girafe = new Animal("La girafe", 1200000, 550, 25, "assets/img/girafe.jpg");
 let hippopotame = new Animal("L'hippopotame", 1500000, 400, 45, "assets/img/hippopotame.jpg");
