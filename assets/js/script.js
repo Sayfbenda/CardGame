@@ -1,8 +1,17 @@
 function GenerateRandomCards(animaux) {
     let cards = []
-    for (let index = 0; index < 5; index++) {
+    while (cards.length < 5) {
+        let isInliste = false
         const random = Math.floor(Math.random() * animaux.length)
-        if (!(cards[animaux])) {
+        if (cards.length == 0) {
+            cards.push(animaux[random])
+        }
+        cards.forEach(element => {
+            if (element == animaux[random]) {
+                isInliste = true
+            }
+        });
+        if (!isInliste) {
             cards.push(animaux[random])
         }
     }
@@ -10,8 +19,16 @@ function GenerateRandomCards(animaux) {
 }
 
 function GenerateRandomRegle(regles) {
-    const random = Math.floor(Math.random() * animaux.regles)
+    const random = Math.floor(Math.random() * regles.length)
     return regles[random]
 }
-console.log(GenerateRandomRegle(regles))
-console.log(GenerateRandomCards(animaux))
+
+function SetCardsToCardsPlace(cards) {
+    console.log(cards)
+}
+
+function Play() {
+    SetCardsToCardsPlace(GenerateRandomCards(animaux))
+}
+
+Play()
