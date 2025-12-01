@@ -11,10 +11,10 @@ class Animal {
     }
 }
 
-let mygale = new Animal("La mygale", 110, 15, 18, "assets/img/mygale.jpg"); // Note: Taille ajustée en cm
+let mygale = new Animal("La mygale", 110, 15, 18, "assets/img/mygale.jpg");
 let fourmi = new Animal("La fourmi", 0.01, 1, 1, "assets/img/fourmi.jpg");
-let abeille = new Animal("L'abeille", 0.1, 1.5, 3, "assets/img/abeille.jpg"); // Reine: ~3 ans
-let papillon = new Animal("Le monarque", 0.5, 10, 0.7, "assets/img/papillon.jpg"); // Vie en années (~9 mois)
+let abeille = new Animal("L'abeille", 0.1, 1.5, 3, "assets/img/abeille.jpg");
+let papillon = new Animal("Le monarque", 0.5, 10, 0.7, "assets/img/papillon.jpg");
 let colibri = new Animal("Le colibri", 4, 10, 5, "assets/img/colibri.jpg");
 let scorpion = new Animal("Le scorpion", 30, 18, 5, "assets/img/scorpion.jpg");
 
@@ -42,4 +42,4 @@ let crocodile = new Animal("Le crocodile du Nil", 500000, 450, 75, "assets/img/c
 let tortue = new Animal("La tortue des Galapagos", 250000, 150, 150, "assets/img/tortue.jpg");
 let cameleon = new Animal("Le caméléon", 150, 30, 5, "assets/img/cameleon.jpg");
 
-console.log(animaux)
+let regles = ["poids", "vie", "taille"]

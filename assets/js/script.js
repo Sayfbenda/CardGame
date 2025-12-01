@@ -9,4 +9,9 @@ function GenerateRandomCards(animaux) {
     return cards
 }
 
+function GenerateRandomRegle(regles) {
+    const random = Math.floor(Math.random() * animaux.regles)
+    return regles[random]
+}
+console.log(GenerateRandomRegle(regles))
 console.log(GenerateRandomCards(animaux))
