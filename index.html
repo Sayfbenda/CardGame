@@ -1,75 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/index.css">
-    <title>Wildline</title>
+    <title>Cardline Challenge - Home</title>
+    <link rel="stylesheet" href="assets/css/index.css"> <link rel="stylesheet" href="home.css"> <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/phosphor-icons"></script>
 </head>
 <body>
-    <header>
-        <nav>
-            <div>
-                <img src="assets/img/logo.png" alt="">
-                <span>Wildline</span>
-            </div>
-            <ul>
-                <a href="#">Acceuil</a>
-                <a href="game.html">Game</a>
-                <a href="#">About</a>
-            </ul>
-            <div>
-                <button>Login</button>
-                <button>Sign up</button>
-            </div>
-        </nav>
-    </header>
-    <main>
-        <section>
-            <article>
-                <h1>WildLine</h1>
-                <div>
-                    <fieldset>
 
-                    </fieldset>
-                    <fieldset>
-
-                    </fieldset>
-                    <fieldset>
-
-                    </fieldset>
-                    <fieldset>
-                        
-                    </fieldset>
-                    <fieldset>
-                        
-                    </fieldset>
-                </div>
-            </article>
-        </section>
-        <section>
-            <article>
-                <h2>About</h2>
-                <div>
-                    <fieldset>
-
-                    </fieldset>
-                    <fieldset>
-
-                    </fieldset>
-                    <fieldset>
-
-                    </fieldset>
-                </div>
-            </article>
-        </section>
-        <section>
-
-        </section>
-    </main>
-    <footer>
+    <div class="home-container">
         
-    </footer>
+        <header class="hero-header">
+            <div class="logo-large">
+                <i class="ph-fill ph-cube"></i>
+                <span>Cardline Challenge</span>
+            </div>
+            <p class="subtitle">Test your knowledge. Order the cards. Beat the score.</p>
+        </header>
+
+        <div class="visual-deck">
+            <div class="card decorative card-left">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1546182990-dffeafbe841d?q=80&w=300');"></div>
+            </div>
+            <div class="card decorative card-center">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1555169062-013468b47731?q=80&w=300');"></div>
+            </div>
+            <div class="card decorative card-right">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1535591273668-578e31182c4f?q=80&w=300');"></div>
+            </div>
+        </div>
+
+        <div class="mode-selection">
+            <label class="mode-option">
+                <input type="radio" name="gameMode" value="weight" checked>
+                <div class="mode-card">
+                    <i class="ph-fill ph-scales"></i>
+                    <span>Weight</span>
+                </div>
+            </label>
+            
+            <label class="mode-option">
+                <input type="radio" name="gameMode" value="size">
+                <div class="mode-card">
+                    <i class="ph-fill ph-ruler"></i>
+                    <span>Size</span>
+                </div>
+            </label>
+
+            <label class="mode-option">
+                <input type="radio" name="gameMode" value="age">
+                <div class="mode-card">
+                    <i class="ph-fill ph-hourglass"></i>
+                    <span>Age</span>
+                </div>
+            </label>
+        </div>
+
+        <button class="start-btn">
+            <span>PLAY NOW</span>
+            <i class="ph-bold ph-play"></i>
+        </button>
+
+        <footer class="home-footer">
+            <p>Designed for the GitHub Repo Challenge</p>
+        </footer>
+
+    </div>
 </body>
 </html>
